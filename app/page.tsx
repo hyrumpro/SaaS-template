@@ -21,7 +21,7 @@ export default function Home() {
                             Revolutionize Your Workflow with MyApp
                         </h1>
                         <p className="text-xl md:text-2xl text-indigo-100">
-                            Streamline processes, boost productivity, and unlock your team's potential.
+                            Streamline processes, boost productivity, and unlock your team&apos;s potential.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <Link href="/dashboard">
