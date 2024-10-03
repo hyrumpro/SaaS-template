@@ -61,8 +61,8 @@ export default function Profile() {
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                     <Image
-                        src={user.image_url || user.avatar_url || DEFAULT_IMAGE_URL}
-                        alt={user.display_name || user.full_name || "User"}
+                        src={user.image_url || DEFAULT_IMAGE_URL}
+                        alt={user.display_name || "User"}
                         layout="fill"
                         objectFit="cover"
                         className="rounded-full"
@@ -72,7 +72,7 @@ export default function Profile() {
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none">{user.display_name || user.full_name}</p>
+                        <p className="text-sm font-medium leading-none">{user.display_name}</p>
                         <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
                     </div>
                 </DropdownMenuLabel>
@@ -100,3 +100,4 @@ function ProfileSkeleton() {
         <div className="h-10 w-10 rounded-full bg-gray-200 animate-pulse"></div>
     );
 }
+
