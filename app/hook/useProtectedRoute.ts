@@ -1,5 +1,4 @@
-// hooks/useProtectedRoute.ts
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import useUser from '@/app/hook/useUser';
 
@@ -17,23 +16,7 @@ export function useProtectedRoute(requiredTier: SubscriptionTier) {
     const { data: user, isFetching } = useUser();
     const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
 
-    useEffect(() => {
-        console.log('useEffect triggered. User:', user, 'isFetching:', isFetching);
-        if (!isFetching) {
-            if (!user) {
-                console.log('No user found. Redirecting to /auth');
-                router.push('/auth');
-            } else if (!user.subscription) {
-                console.log('No subscription found. Redirecting to /#pricing');
-                router.push('/#pricing');
-            } else {
-                console.log('User and subscription found. Checking subscription status');
-                checkSubscriptionStatus(user.subscription);
-            }
-        }
-    }, [user, isFetching, router, requiredTier]);
-
-    const checkSubscriptionStatus = async (subscription: Subscription) => {
+    const checkSubscriptionStatus = useCallback(async (subscription: Subscription) => {
         try {
             // Check if subscription has expired
             if (subscription.end_at && new Date(subscription.end_at) < new Date()) {
@@ -69,7 +52,23 @@ export function useProtectedRoute(requiredTier: SubscriptionTier) {
             console.error('Error checking subscription status:', error);
             router.push('/auth');
         }
-    };
+    }, [router, requiredTier]);
+
+    useEffect(() => {
+        console.log('useEffect triggered. User:', user, 'isFetching:', isFetching);
+        if (!isFetching) {
+            if (!user) {
+                console.log('No user found. Redirecting to /auth');
+                router.push('/auth');
+            } else if (!user.subscription) {
+                console.log('No subscription found. Redirecting to /#pricing');
+                router.push('/#pricing');
+            } else {
+                console.log('User and subscription found. Checking subscription status');
+                checkSubscriptionStatus(user.subscription);
+            }
+        }
+    }, [user, isFetching, router, requiredTier, checkSubscriptionStatus]);
 
     return { isAuthorized, isLoading: isFetching || isAuthorized === null };
 }
