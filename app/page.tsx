@@ -33,7 +33,8 @@ export default function Home() {
                             Revolutionize Your Workflow with <span className="text-indigo-600">MyApp</span>
                         </h1>
                         <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-lg mx-auto md:mx-0">
-                            Streamline processes, boost productivity, and unlock your teams potential with our comprehensive solutions.
+                            Streamline processes, boost productivity, and unlock your teams potential with our
+                            comprehensive solutions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <Link href="/dashboard">
@@ -41,7 +42,7 @@ export default function Home() {
                                     size="lg"
                                     className="bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 font-semibold px-8 py-3 rounded-full shadow-md flex items-center justify-center"
                                 >
-                                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                                    Get Started <ArrowRight className="ml-2 h-5 w-5"/>
                                 </Button>
                             </Link>
                             <Link href="#pricing">
@@ -67,7 +68,7 @@ export default function Home() {
                                 key={index}
                                 className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
                             >
-                                <CheckCircle className="h-6 w-6 text-indigo-600 mt-1" />
+                                <CheckCircle className="h-6 w-6 text-indigo-600 mt-1"/>
                                 <span className="text-lg font-medium text-gray-700">{feature}</span>
                             </div>
                         ))}
@@ -90,7 +91,7 @@ export default function Home() {
                                         className="rounded-full"
                                     />
                                     <div>
-                                        <p className="text-gray-600">"{testimonial.message}"</p>
+                                        <p className="text-gray-600">&ldquo;{testimonial.message}&rdquo;</p>
                                         <p className="mt-2 text-indigo-600 font-semibold">{testimonial.name}, {testimonial.role}</p>
                                     </div>
                                 </div>
@@ -103,7 +104,7 @@ export default function Home() {
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900">
                         Flexible Pricing for Every Team
                     </h2>
-                    <Price />
+                    <Price/>
                 </section>
 
                 <section className="bg-indigo-600 py-12 rounded-xl">
@@ -116,7 +117,7 @@ export default function Home() {
                                 size="lg"
                                 className="bg-white text-indigo-600 hover:bg-gray-100 transition-all duration-300 font-semibold px-8 py-3 rounded-full shadow-md"
                             >
-                                Sign Up Now <ArrowRight className="ml-2 h-5 w-5" />
+                                Sign Up Now <ArrowRight className="ml-2 h-5 w-5"/>
                             </Button>
                         </Link>
                     </div>
@@ -124,7 +125,8 @@ export default function Home() {
             </div>
 
             <footer className="w-full bg-gray-800 text-gray-200 py-8">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div
+                    className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div className="flex space-x-4">
                         <Link href="/" className="hover:text-white transition-colors duration-200">
                             Home
